@@ -6,8 +6,14 @@ from components.login import LoginForm
 app, rt = fast_app(live=True)
 
 
+@dataclass
+class Login:
+    username: str
+    password: str
+
+
 @rt("/")
-def root():
+def get():
     return Div(
         LoginForm(),
         Script("""
@@ -22,9 +28,20 @@ def root():
     )
 
 
+@rt("/login")
+def post(login: Login, sess):
+    sess["auth"] = login.username
+    return RedirectResponse("/dashboard", status_code=303)
+
+
 @rt("/dashboard")
-def dashboard():
+def get():
     return Div(Dashboard())
+
+
+@rt("/logout")
+def post():
+    return RedirectResponse("/", status_code=303)
 
 
 serve()

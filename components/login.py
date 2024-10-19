@@ -31,17 +31,10 @@ def LoginForm():
                     ),
                 ),
                 Button("Đăng nhập", type="submit"),
-                onsubmit="handleSubmit(event)",
+                action="/login",
+                method="post",
             ),
             style="width: 50%; margin: 0 auto;",  # Set width and center alignment
         ),
         style="display: flex; justify-content: center; align-items: center; height: 100vh;",  # Center vertically
     )
-
-
-def handleSubmit(event):
-    event.preventDefault()
-    username = document.getElementById("username").value
-    password = document.getElementById("password").value
-    console.log("Login submitted:", {"username": username, "password": password})
-    # Here you would typically handle the login logic

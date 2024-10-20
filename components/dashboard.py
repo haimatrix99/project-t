@@ -1,5 +1,7 @@
 from fasthtml.common import *
 
+from components.webcam import Webcam
+
 
 def Dashboard():
     return Div(
@@ -21,6 +23,7 @@ def Dashboard():
             right: 20px;
             """,
         ),
+        Webcam(),
         Form(
             # Tags with a `name` attr will have `name` auto-set to the same as `id` if not provided
             Button(

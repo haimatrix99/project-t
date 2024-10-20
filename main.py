@@ -44,4 +44,10 @@ def post():
     return RedirectResponse("/", status_code=303)
 
 
+@rt("/process_image")
+async def post(request: Request, sess):
+    print(await request.json())
+    return {"status": "OK"}
+
+
 serve()

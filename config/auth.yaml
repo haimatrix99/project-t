@@ -1,0 +1,12 @@
+credentials:
+  usernames:
+    admin:
+      email: admin@gmail.com
+      name: Admin
+      password: admin # To be replaced with hashed password
+      roles:
+      - admin
+cookie:
+  expiry_days: 30
+  key: BwmUCQfUFPtjw2y0 # Must be string
+  name: custom_cookie

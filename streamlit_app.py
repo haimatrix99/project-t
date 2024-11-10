@@ -7,7 +7,7 @@ from utils import load_config
 def app():
     hide_streamlit_style = """
             <style>
-            [id^="MainMenu"], [id^="profileContainer"] {visibility: hidden;}
+            #_profileContainer_51w34_53 {visibility: hidden;}
             </style>
             """
     st.markdown(hide_streamlit_style, unsafe_allow_html=True)

@@ -5,6 +5,13 @@ from utils import load_config
 
 
 def app():
+    hide_streamlit_style = """
+            <style>
+            #MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
+            </style>
+            """
+    st.markdown(hide_streamlit_style, unsafe_allow_html=True)
     config = load_config()
     authenticator = stauth.Authenticate(
         config["credentials"],

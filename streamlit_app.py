@@ -5,12 +5,6 @@ from utils import load_config
 
 
 def app():
-    hide_streamlit_style = """
-            <style>
-            #_profileContainer_51w34_53 {visibility: hidden;}
-            </style>
-            """
-    st.markdown(hide_streamlit_style, unsafe_allow_html=True)
     config = load_config()
     authenticator = stauth.Authenticate(
         config["credentials"],

@@ -12,7 +12,10 @@ def page():
         img = Image.open(picture)
         img_array = np.array(img)
         res = model.predict(img_array, conf=confidence)
-        print(res)
+        if len(res[0].boxes) > 0:
+            st.success("Đã checkin thành công!")
+        else:
+            st.error("Không tìm thấy mặt trong ảnh. Vui lòng thử lại!")
 
     send = st.button("Gửi", type="primary", use_container_width=True)
 

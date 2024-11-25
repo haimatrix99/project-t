@@ -1,7 +1,25 @@
+from pathlib import Path
+
 import streamlit as st
 import streamlit_authenticator as stauth
 
+import constants
+import helper
 from utils import load_config
+
+# Selecting Detection Or Segmentation
+model_path = Path(constants.DETECTION_MODEL)
+
+
+# Load Pre-trained ML Model
+try:
+    model = helper.load_model(model_path)
+    st.session_state["model"] = model
+    st.session_state["confidence"] = 0.4
+
+except Exception as ex:
+    st.error(f"Unable to load model. Check the specified path: {model_path}")
+    st.error(ex)
 
 
 def app():

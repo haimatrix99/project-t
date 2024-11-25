@@ -1,2 +1,4 @@
+ultralytics
 streamlit
-streamlit-authenticator
+streamlit_authenticator
+Pillow

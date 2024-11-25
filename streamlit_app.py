@@ -4,8 +4,7 @@ import streamlit as st
 import streamlit_authenticator as stauth
 
 import constants
-import helper
-from utils import load_config
+from utils import load_config, load_model
 
 # Selecting Detection Or Segmentation
 model_path = Path(constants.DETECTION_MODEL)
@@ -13,7 +12,7 @@ model_path = Path(constants.DETECTION_MODEL)
 
 # Load Pre-trained ML Model
 try:
-    model = helper.load_model(model_path)
+    model = load_model(model_path)
     st.session_state["model"] = model
     st.session_state["confidence"] = 0.4
 
